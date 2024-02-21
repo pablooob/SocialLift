@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class EjercicioService {
 
-    public EjercicioRepository ejercicioRepository;
+    private EjercicioRepository ejercicioRepository;
 
     @Autowired
     public EjercicioService(EjercicioRepository ejercicioRepository){
