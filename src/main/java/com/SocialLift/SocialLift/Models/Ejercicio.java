@@ -34,7 +34,7 @@ public class Ejercicio {
     @ManyToOne
     @JoinColumn(name = "idPlantillaRutina")
     @JsonIgnore
-    private Rutina plantillaRutinaPerteneciente;
+    private PlantillaRutina plantillaRutinaPerteneciente;
 
     public void setId(Long id) {
         this.idEjercicio = id;
