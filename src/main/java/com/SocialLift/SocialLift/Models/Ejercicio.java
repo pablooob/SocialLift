@@ -36,6 +36,16 @@ public class Ejercicio {
     @JsonIgnore
     private PlantillaRutina plantillaRutinaPerteneciente;
 
+    @ManyToOne
+    @JoinColumn(name = "idSerie")
+    @JsonIgnore
+    private Serie serie;
+
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    @JsonIgnore
+    private Usuario usuario;
+
     public void setId(Long id) {
         this.idEjercicio = id;
     }
