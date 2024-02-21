@@ -9,7 +9,7 @@ public class Serie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long idSerie;
 
     @Column(nullable = false)
     private String numeroSerie;
@@ -20,4 +20,6 @@ public class Serie {
     @Column(nullable = false)
     private String numeroRepeticiones;
 
+    @OneToMany(mappedBy = "serie")
+    private List<Ejercicio> ejercicios;
 }

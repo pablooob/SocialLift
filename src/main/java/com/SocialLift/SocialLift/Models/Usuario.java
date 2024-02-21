@@ -1,10 +1,14 @@
 package com.SocialLift.SocialLift.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -31,4 +35,23 @@ public class Usuario {
 
     @Column(nullable = false)
     private String contrasenya;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<PlantillaRutina> plantillaRutinas;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Ejercicio> ejercicios;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "seguidores_seguidos",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "seguido_id")
+    )
+    private List<Usuario> seguidores;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "seguidores")
+    private List<Usuario> seguidos;
 }
