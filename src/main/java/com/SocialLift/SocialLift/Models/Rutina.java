@@ -1,5 +1,6 @@
 package com.SocialLift.SocialLift.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,6 +30,7 @@ public class Rutina {
 
     @ManyToOne
     @JoinColumn(name = "idPlantillaRutina")
+    @JsonIgnore
     private PlantillaRutina plantillaRutina;
 
     @OneToMany(mappedBy = "rutinaPerteneciente")
