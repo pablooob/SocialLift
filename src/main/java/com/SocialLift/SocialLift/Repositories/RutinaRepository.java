@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RutinaRepository extends JpaRepository<Rutina, Long> {
+
+
 }
