@@ -35,4 +35,8 @@ public class Ejercicio {
     @JoinColumn(name = "idPlantillaRutina")
     @JsonIgnore
     private Rutina plantillaRutinaPerteneciente;
+
+    public void setId(Long id) {
+        this.idEjercicio = id;
+    }
 }
