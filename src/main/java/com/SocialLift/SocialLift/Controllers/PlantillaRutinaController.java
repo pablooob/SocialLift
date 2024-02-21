@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/PlantillaRutina")
+@RequestMapping("/api/plantillaRutina")
 public class PlantillaRutinaController {
 
     private PlantillaRutinaService plantillaRutinaService;

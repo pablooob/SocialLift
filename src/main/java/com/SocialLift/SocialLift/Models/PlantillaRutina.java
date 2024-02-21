@@ -30,4 +30,8 @@ public class PlantillaRutina {
     @OneToMany(mappedBy = "plantillaRutinaPerteneciente")
     private List<Ejercicio> ejercicios;
 
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
+
 }

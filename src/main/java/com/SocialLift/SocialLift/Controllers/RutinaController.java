@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/rutina")
+@RequestMapping("/api/rutina")
 public class RutinaController {
     private RutinaService rutinaService;
 
