@@ -36,7 +36,7 @@ public class PlantillaRutinaService {
         plantillaRutinaRepositoryRepository.save(plantillaRutina);
     }
 
-    public void DeleteEjercicio(Long id){
+    public void DeletePlantillaRutina(Long id){
         plantillaRutinaRepositoryRepository.deleteById(id);
     }
 }
