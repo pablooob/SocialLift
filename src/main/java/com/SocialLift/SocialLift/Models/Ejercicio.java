@@ -34,5 +34,5 @@ public class Ejercicio {
     @ManyToOne
     @JoinColumn(name = "idPlantillaRutina")
     @JsonIgnore
-    private Rutina plantillaRutinaPerteneciente;
+    private PlantillaRutina plantillaRutinaPerteneciente;
 }
