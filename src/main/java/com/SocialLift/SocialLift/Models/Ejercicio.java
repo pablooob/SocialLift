@@ -46,6 +46,8 @@ public class Ejercicio {
     @JsonIgnore
     private Usuario usuario;
 
+
+    @JsonIgnore
     public void setId(Long id) {
         this.idEjercicio = id;
     }

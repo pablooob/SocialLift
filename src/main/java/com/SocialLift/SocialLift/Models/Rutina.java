@@ -36,6 +36,7 @@ public class Rutina {
     @OneToMany(mappedBy = "rutinaPerteneciente")
     private List<Ejercicio> ejercicios;
 
+   @JsonIgnore
     public void setId(Long id) {
         this.idRutina = id;
     }
