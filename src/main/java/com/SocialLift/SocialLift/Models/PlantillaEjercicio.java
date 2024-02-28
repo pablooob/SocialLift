@@ -14,26 +14,31 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Ejercicio{
+public class PlantillaEjercicio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEjercicio;
+    private Long idPlantillaEjercicio;
+
+    @Column(nullable = false, unique = true)
+    private String nombre;
+
+    private String descripcion;
+
+    @Column(nullable = false)
+    private String tipo;
+
+    @ManyToMany(mappedBy = "plantillaEjercicios")
+    @JsonIgnore
+    private List<PlantillaRutina> plantillaRutina;
 
     @ManyToOne
-    @JoinColumn(name = "idRutina")
+    @JoinColumn(name = "idUsuario")
     @JsonIgnore
-    private Rutina rutina;
+    private Usuario usuario;
 
-    @OneToMany(mappedBy = "ejercicio", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Serie> series;
-
-    @OneToOne
-    @JoinColumn(name = "idPlantillaEjercicio")
-    private PlantillaEjercicio plantillaEjercicio;
 
     @JsonIgnore
     public void setId(Long id) {
-        this.idEjercicio = id;
+        this.idPlantillaEjercicio = id;
     }
 }
