@@ -7,9 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-import java.util.List;
-
 import java.util.List;
 
 @Entity
@@ -42,7 +39,7 @@ public class Usuario {
     private List<PlantillaRutina> plantillaRutinas;
 
     @OneToMany(mappedBy = "usuario")
-    private List<Ejercicio> ejercicios;
+    private List<PlantillaEjercicio> plantillaEjercicios;
 
 
     @ManyToMany

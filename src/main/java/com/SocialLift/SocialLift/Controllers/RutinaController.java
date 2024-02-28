@@ -1,6 +1,5 @@
 package com.SocialLift.SocialLift.Controllers;
 
-import com.SocialLift.SocialLift.Models.Ejercicio;
 import com.SocialLift.SocialLift.Models.Rutina;
 import com.SocialLift.SocialLift.Services.RutinaService;
 import org.springframework.beans.factory.annotation.Autowired;

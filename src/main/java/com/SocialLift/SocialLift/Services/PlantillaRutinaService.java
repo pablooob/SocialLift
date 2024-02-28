@@ -1,8 +1,6 @@
 package com.SocialLift.SocialLift.Services;
 
-import com.SocialLift.SocialLift.Models.Ejercicio;
 import com.SocialLift.SocialLift.Models.PlantillaRutina;
-import com.SocialLift.SocialLift.Repositories.EjercicioRepository;
 import com.SocialLift.SocialLift.Repositories.PlantillaRutinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

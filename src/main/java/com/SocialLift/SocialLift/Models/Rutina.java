@@ -33,8 +33,8 @@ public class Rutina {
     @JsonIgnore
     private PlantillaRutina plantillaRutina;
 
-    @OneToMany(mappedBy = "rutinaPerteneciente")
-    private List<Ejercicio> ejercicios;
+    @OneToMany(mappedBy = "rutina")
+    private List<Ejercicio> Ejercicios;
 
    @JsonIgnore
     public void setId(Long id) {

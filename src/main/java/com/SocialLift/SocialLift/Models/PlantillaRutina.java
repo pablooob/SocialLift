@@ -27,8 +27,13 @@ public class PlantillaRutina {
     @OneToMany(mappedBy = "plantillaRutina")
     private List<Rutina> rutinas;
 
-    @OneToMany(mappedBy = "plantillaRutinaPerteneciente")
-    private List<Ejercicio> ejercicios;
+    @ManyToMany
+    @JoinTable(
+            name = "rutina_ejercicio",
+            joinColumns = @JoinColumn(name = "rutina_id"),
+            inverseJoinColumns = @JoinColumn(name = "ejercicio_id")
+    )
+    private List<PlantillaEjercicio> plantillaEjercicios;
 
     @ManyToOne
     @JoinColumn(name = "idUsuario")

@@ -3,7 +3,6 @@ package com.SocialLift.SocialLift.Controllers;
 import com.SocialLift.SocialLift.Models.Ejercicio;
 import com.SocialLift.SocialLift.Services.EjercicioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,7 +36,7 @@ public class EjercicioController {
 
     @PutMapping("/{id}")
     public String actualizarEjercicio(@PathVariable Long id, @RequestBody Ejercicio ejercicio) {
-        ejercicio.setId(id); // Asegurarse de que el ID del ejercicio sea el mismo que se proporciona en la URL
+        ejercicio.setId(id);
         ejercicioService.UpdateEjercicio(ejercicio);
         return "Ejercicio actualizado exitosamente";
     }

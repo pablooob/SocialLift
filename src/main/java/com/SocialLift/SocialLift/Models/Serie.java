@@ -20,6 +20,7 @@ public class Serie {
     @Column(nullable = false)
     private String numeroRepeticiones;
 
-    @OneToMany(mappedBy = "serie")
-    private List<Ejercicio> ejercicios;
+    @ManyToOne
+    @JoinColumn(name = "idEjercicio", nullable = false)
+    private Ejercicio ejercicio;
 }
