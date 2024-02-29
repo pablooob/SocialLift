@@ -30,8 +30,8 @@ public class PlantillaRutina {
     @ManyToMany
     @JoinTable(
             name = "rutina_ejercicio",
-            joinColumns = @JoinColumn(name = "rutina_id"),
-            inverseJoinColumns = @JoinColumn(name = "ejercicio_id")
+            joinColumns = @JoinColumn(name = "idRutina"),
+            inverseJoinColumns = @JoinColumn(name = "idEjercicio")
     )
     private List<PlantillaEjercicio> plantillaEjercicios;
 
