@@ -36,11 +36,12 @@ public class Usuario {
     private String contrasenya;
 
     @OneToMany(mappedBy = "usuario")
+    @JsonIgnore
     private List<PlantillaRutina> plantillaRutinas;
 
     @OneToMany(mappedBy = "usuario")
+    @JsonIgnore
     private List<PlantillaEjercicio> plantillaEjercicios;
-
 
     @ManyToMany
     @JoinTable(

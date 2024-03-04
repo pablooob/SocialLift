@@ -33,7 +33,6 @@ public class PlantillaEjercicio {
 
     @ManyToOne
     @JoinColumn(name = "idUsuario")
-    @JsonIgnore
     private Usuario usuario;
 
 
