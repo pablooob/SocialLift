@@ -38,9 +38,7 @@ public class UsuarioController {
 
     @GetMapping(value = "/nombreUsuario/{nombreUsuario}", headers = "Accept=application/json")
     public Usuario GetByNombreUsuario(@PathVariable String nombreUsuario){
-        Usuario user = usuarioService.GetUserByNombreUsuario(nombreUsuario);
-        if(user != null) return user;
-        throw new NullPointerException();
+        return usuarioService.GetUserByNombreUsuario(nombreUsuario);
     }
 
     @PutMapping(headers = "Accept=application/json")
