@@ -31,6 +31,10 @@ public class UsuarioService {
     public void UpdateUsuario(Usuario usuario){
         usuarioRepository.save(usuario);
     }
+
+    public Usuario GetUserByNombreUsuario(String nombreUsuario){
+        return usuarioRepository.findByNombreUsuario(nombreUsuario);
+    }
     public void DeleteUsuario(Long id){
         usuarioRepository.deleteById(id);
     }
