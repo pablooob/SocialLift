@@ -16,8 +16,8 @@ public class RutinaService {
     public RutinaService(RutinaRepository rutinaRepository){
         this.rutinaRepository = rutinaRepository;
     }
-    public void NewRutina(Rutina rutina){
-        rutinaRepository.save(rutina);
+    public Rutina NewRutina(Rutina rutina){
+        return rutinaRepository.save(rutina);
     }
     public List<Rutina> GetRutinas() { return rutinaRepository.findAll();}
     public Optional<Rutina> GetRutinaById(Long id){ return rutinaRepository.findById(id);}

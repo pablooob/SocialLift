@@ -19,9 +19,8 @@ public class RutinaController {
     }
 
     @PostMapping("/new")
-    public String crearNuevaRutina(@RequestBody Rutina rutina){
-        rutinaService.NewRutina(rutina);
-        return "Rutina creada exitosamente";
+    public Rutina crearNuevaRutina(@RequestBody Rutina rutina){
+        return rutinaService.NewRutina(rutina);
     }
 
     @GetMapping("/all")
