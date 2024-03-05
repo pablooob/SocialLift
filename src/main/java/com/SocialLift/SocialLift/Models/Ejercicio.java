@@ -28,7 +28,7 @@ public class Ejercicio{
     @JsonIgnore
     private List<Serie> series;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "idPlantillaEjercicio")
     private PlantillaEjercicio plantillaEjercicio;
 

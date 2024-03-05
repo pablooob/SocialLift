@@ -19,9 +19,9 @@ public class EjercicioController {
     }
 
     @PostMapping("/new")
-    public String crearNuevoEjercicio(@RequestBody Ejercicio ejercicio) {
-        ejercicioService.NewEjercicio(ejercicio);
-        return "Ejercicio creado exitosamente";
+    public Ejercicio crearNuevoEjercicio(@RequestBody Ejercicio ejercicio) {
+
+        return ejercicioService.NewEjercicio(ejercicio);
     }
     @GetMapping("/all")
     public List<Ejercicio> GetEjercicios() {

@@ -18,8 +18,8 @@ public class EjercicioService {
         this.ejercicioRepository = ejercicioRepository;
     }
 
-    public void NewEjercicio(Ejercicio ejercicio){
-        ejercicioRepository.save(ejercicio);
+    public Ejercicio NewEjercicio(Ejercicio ejercicio){
+        return ejercicioRepository.save(ejercicio);
     }
 
     public List<Ejercicio> GetEjercicios(){
