@@ -41,6 +41,10 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario")
     @JsonIgnore
+    private List<Rutina> Rutinas;
+
+    @OneToMany(mappedBy = "usuario")
+    @JsonIgnore
     private List<PlantillaEjercicio> plantillaEjercicios;
 
     @ManyToMany
