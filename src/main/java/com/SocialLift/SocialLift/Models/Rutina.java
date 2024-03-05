@@ -34,6 +34,7 @@ public class Rutina {
     private PlantillaRutina plantillaRutina;
 
     @OneToMany(mappedBy = "rutina")
+    @JsonIgnore
     private List<Ejercicio> Ejercicios;
 
     @ManyToOne
