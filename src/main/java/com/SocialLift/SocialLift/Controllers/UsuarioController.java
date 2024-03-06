@@ -41,6 +41,20 @@ public class UsuarioController {
         return usuarioService.GetUserByNombreUsuario(nombreUsuario);
     }
 
+    @GetMapping(value = "/{id}/seguidores", headers = "Accept=application/json")
+    public List<Usuario> GetSeguidoresById(@PathVariable Long id){
+        return usuarioService.GetSeguidoresById(id);
+    }
+
+    @GetMapping(value = "/{id}/siguiendo", headers = "Accept=application/json")
+    public List<Usuario> GetSeguiendoById(@PathVariable Long id){
+        return usuarioService.GetSeguiendoById(id);
+    }
+
+    @PostMapping(value = "/{idUsuarioLoggeado}/seguir/{idUsuarioASeguir}", headers = "Accept=application/json")
+    public void PostSeguirUsuario(@PathVariable Long idUsuarioLoggeado, @PathVariable Long idUsuarioASeguir) throws Exception {
+        usuarioService.SeguirUsuarioById(idUsuarioLoggeado, idUsuarioASeguir);
+    }
     @PutMapping(headers = "Accept=application/json")
     public void UpdateUsuario(Usuario usuario){
         usuarioService.UpdateUsuario(usuario);
@@ -49,5 +63,10 @@ public class UsuarioController {
     @DeleteMapping(value = "/{id}", headers = "Accept=application/json")
     public void DeleteUsuarioById(@PathVariable Long id){
         usuarioService.DeleteUsuario(id);
+    }
+
+    @DeleteMapping(value = "/{idUsuarioLoggeado}/desseguir/{idUsuarioADesSeguir}", headers = "Accept=application/json")
+    public void DeleteSeguimientoById(@PathVariable Long idUsuarioLoggeado, @PathVariable Long idUsuarioADesSeguir) throws Exception{
+        usuarioService.DeleteSeguimientoById(idUsuarioLoggeado, idUsuarioADesSeguir);
     }
 }

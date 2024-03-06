@@ -1,6 +1,8 @@
 package com.SocialLift.SocialLift.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -53,9 +55,11 @@ public class Usuario {
             joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "seguido_id")
     )
+    @JsonIgnoreProperties({"seguidores", "seguidos"})
     private List<Usuario> seguidores;
 
-    @JsonIgnore
+
     @ManyToMany(mappedBy = "seguidores")
+    @JsonIgnoreProperties({"seguidores", "seguidos"})
     private List<Usuario> seguidos;
 }
