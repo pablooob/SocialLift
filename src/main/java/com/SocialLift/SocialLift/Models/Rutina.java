@@ -36,7 +36,7 @@ public class Rutina {
     @JsonIgnoreProperties("rutinas")
     private PlantillaRutina plantillaRutina;
 
-    @OneToMany(mappedBy = "rutina")
+    @OneToMany(mappedBy = "rutina", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties("rutina")
     private List<Ejercicio> Ejercicios;
 
