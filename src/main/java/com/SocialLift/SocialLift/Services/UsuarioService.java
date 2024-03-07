@@ -28,14 +28,24 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
     public Optional<Usuario> GetUsuarioById(Long id){
-        return usuarioRepository.findById(id);
+        Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
+        if(usuarioOptional.isPresent()){
+            usuarioOptional.get().setSeguidores(null);
+            usuarioOptional.get().setSeguidos(null);
+            }
+        return usuarioOptional;
     }
     public void UpdateUsuario(Usuario usuario){
         usuarioRepository.save(usuario);
     }
 
     public Usuario GetUserByNombreUsuario(String nombreUsuario){
-        return usuarioRepository.findByNombreUsuario(nombreUsuario);
+        Usuario usuarioOptional = usuarioRepository.findByNombreUsuario(nombreUsuario);
+        if(usuarioOptional != null){
+            usuarioOptional.setSeguidores(null);
+            usuarioOptional.setSeguidos(null);
+        }
+        return usuarioOptional;
     }
     public List<Usuario> GetSeguidoresById(Long id){
         Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
