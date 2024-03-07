@@ -1,6 +1,7 @@
 package com.SocialLift.SocialLift.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,7 +35,7 @@ public class Rutina {
     private PlantillaRutina plantillaRutina;
 
     @OneToMany(mappedBy = "rutina")
-    @JsonIgnore
+    @JsonIgnoreProperties("rutina")
     private List<Ejercicio> Ejercicios;
 
     @ManyToOne

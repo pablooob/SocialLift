@@ -1,6 +1,7 @@
 package com.SocialLift.SocialLift.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,6 +22,7 @@ public class Ejercicio{
 
     @ManyToOne
     @JoinColumn(name = "idRutina")
+    @JsonIgnoreProperties("ejercicios")
     private Rutina rutina;
 
     @OneToMany(mappedBy = "ejercicio", cascade = CascadeType.ALL)
