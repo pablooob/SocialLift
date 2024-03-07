@@ -1,5 +1,6 @@
 package com.SocialLift.SocialLift.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,10 +22,13 @@ public class PlantillaRutina {
     @Column(nullable = false)
     private String nombre;
 
+    private String descripcion;
+
     @Column(nullable = false)
     private String tipo;
 
     @OneToMany(mappedBy = "plantillaRutina")
+    @JsonIgnoreProperties("plantillaRutina")
     private List<Rutina> rutinas;
 
     @ManyToMany

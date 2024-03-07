@@ -24,6 +24,8 @@ public class Rutina {
     @Column(nullable = false)
     private String nombre;
 
+    private String tipo;
+
     private String descripcion;
 
     @Column(nullable = false)
@@ -31,7 +33,7 @@ public class Rutina {
 
     @ManyToOne
     @JoinColumn(name = "idPlantillaRutina")
-    @JsonIgnore
+    @JsonIgnoreProperties("rutinas")
     private PlantillaRutina plantillaRutina;
 
     @OneToMany(mappedBy = "rutina")
