@@ -42,6 +42,7 @@ public class Rutina {
 
     @ManyToOne
     @JoinColumn(name = "idUsuario")
+    @JsonIgnoreProperties({"seguidores", "seguidos"})
     private Usuario usuario;
 
    @JsonIgnore
