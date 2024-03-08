@@ -25,7 +25,7 @@ public class Ejercicio{
     @JsonIgnoreProperties("ejercicios")
     private Rutina rutina;
 
-    @OneToMany(mappedBy = "ejercicio", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "ejercicio", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<Serie> series;
 

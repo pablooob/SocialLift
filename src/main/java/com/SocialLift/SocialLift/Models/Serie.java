@@ -1,10 +1,18 @@
 package com.SocialLift.SocialLift.Models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Serie {
 
     @Id
@@ -12,13 +20,16 @@ public class Serie {
     private long idSerie;
 
     @Column(nullable = false)
-    private String numeroSerie;
+    private int numeroSerie;
 
     @Column(nullable = false)
-    private String peso;
+    private double peso;
 
     @Column(nullable = false)
-    private String numeroRepeticiones;
+    private String tipoPeso;
+
+    @Column(nullable = false)
+    private int numeroRepeticiones;
 
     @ManyToOne
     @JoinColumn(name = "idEjercicio", nullable = false)
