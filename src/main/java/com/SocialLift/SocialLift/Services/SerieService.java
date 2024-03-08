@@ -19,8 +19,8 @@ public class SerieService {
     public SerieService(SerieRepository serieRepository){
         this.serieRepository = serieRepository;
     }
-    public void NewSerie(Serie serie){
-        serieRepository.save(serie);
+    public Serie NewSerie(Serie serie){
+        return serieRepository.save(serie);
     }
     public List<Serie> GetSeries(){
         return serieRepository.findAll();

@@ -19,8 +19,8 @@ public class SerieController {
     }
 
     @PostMapping(headers = "Accept=application/json")
-    public void NewSerie(@RequestBody Serie serie){
-        this.serieService.NewSerie(serie);
+    public Serie NewSerie(@RequestBody Serie serie){
+        return this.serieService.NewSerie(serie);
     }
 
     @GetMapping(headers = "Accept=application/json")
