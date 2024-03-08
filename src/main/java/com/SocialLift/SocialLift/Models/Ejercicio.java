@@ -22,11 +22,11 @@ public class Ejercicio{
 
     @ManyToOne
     @JoinColumn(name = "idRutina")
-    @JsonIgnoreProperties("ejercicios")
+    @JsonIgnoreProperties({"ejercicios","plantillaRutina"})
     private Rutina rutina;
 
     @OneToMany(mappedBy = "ejercicio", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
+    @JsonIgnoreProperties("ejercicio")
     private List<Serie> series;
 
     @ManyToOne
