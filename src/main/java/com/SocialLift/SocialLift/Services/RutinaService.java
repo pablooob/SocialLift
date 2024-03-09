@@ -1,5 +1,6 @@
 package com.SocialLift.SocialLift.Services;
 
+import com.SocialLift.SocialLift.Models.PlantillaEjercicio;
 import com.SocialLift.SocialLift.Models.Rutina;
 import com.SocialLift.SocialLift.Repositories.RutinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,10 @@ public class RutinaService {
         return rutinaRepository.save(rutina);
     }
     public List<Rutina> GetRutinas() { return rutinaRepository.findAll();}
+
+    public List<Rutina> getPlantillaEjerciciosByUsuarioId(Long idUsuario) {
+        return rutinaRepository.findByUsuarioIdUsuario(idUsuario);
+    }
     public Optional<Rutina> GetRutinaById(Long id){ return rutinaRepository.findById(id);}
 
     public void UpdateRutina(Rutina rutina) { rutinaRepository.save(rutina);}

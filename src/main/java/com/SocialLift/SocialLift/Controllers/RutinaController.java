@@ -1,5 +1,6 @@
 package com.SocialLift.SocialLift.Controllers;
 
+import com.SocialLift.SocialLift.Models.PlantillaEjercicio;
 import com.SocialLift.SocialLift.Models.Rutina;
 import com.SocialLift.SocialLift.Services.RutinaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,11 @@ public class RutinaController {
     @GetMapping("/all")
     public List<Rutina> GetRutinas() {
         return rutinaService.GetRutinas();
+    }
+
+    @GetMapping("/byUserID/{id}")
+    public List<Rutina> GetPlantillaEjerciciosPorIdUsuario(@PathVariable Long id) {
+        return rutinaService.getPlantillaEjerciciosByUsuarioId(id);
     }
 
     @GetMapping("/{id}")
