@@ -19,8 +19,8 @@ public class PlantillaRutinaController {
     }
 
     @PostMapping(headers = "Accept=application/json")
-    public void NewPlantillaRutina(@RequestBody PlantillaRutina plantillaRutina){
-        this.plantillaRutinaService.NewPlantillaRutina(plantillaRutina);
+    public PlantillaRutina NewPlantillaRutina(@RequestBody PlantillaRutina plantillaRutina){
+        return this.plantillaRutinaService.NewPlantillaRutina(plantillaRutina);
     }
 
     @GetMapping(headers = "Accept=application/json")

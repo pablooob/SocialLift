@@ -18,8 +18,8 @@ public class PlantillaRutinaService {
         this.plantillaRutinaRepositoryRepository = plantillaRutinaRepositoryRepository;
     }
 
-    public void NewPlantillaRutina(PlantillaRutina plantillaRutina){
-        plantillaRutinaRepositoryRepository.save(plantillaRutina);
+    public PlantillaRutina NewPlantillaRutina(PlantillaRutina plantillaRutina){
+        return plantillaRutinaRepositoryRepository.save(plantillaRutina);
     }
 
     public List<PlantillaRutina> GetPlantillaRutinas(){

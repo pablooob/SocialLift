@@ -19,9 +19,8 @@ public class PlantillaEjercicioController {
     }
 
     @PostMapping("/new")
-    public String crearNuevoPlantillaEjercicio(@RequestBody PlantillaEjercicio plantillaEjercicio) {
-        plantillaEjercicioService.NewPlantillaEjercicio(plantillaEjercicio);
-        return "Ejercicio creado exitosamente";
+    public PlantillaEjercicio crearNuevoPlantillaEjercicio(@RequestBody PlantillaEjercicio plantillaEjercicio) {
+        return plantillaEjercicioService.NewPlantillaEjercicio(plantillaEjercicio);
     }
     @GetMapping("/all")
     public List<PlantillaEjercicio> GetPlantillaEjercicios() {

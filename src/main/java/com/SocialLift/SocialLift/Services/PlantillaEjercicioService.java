@@ -18,8 +18,8 @@ public class PlantillaEjercicioService {
         this.plantillaEjercicioRepository = plantillaEjercicioRepository;
     }
 
-    public void NewPlantillaEjercicio(PlantillaEjercicio plantillaEjercicio){
-        plantillaEjercicioRepository.save(plantillaEjercicio);
+    public PlantillaEjercicio NewPlantillaEjercicio(PlantillaEjercicio plantillaEjercicio){
+        return plantillaEjercicioRepository.save(plantillaEjercicio);
     }
 
     public List<PlantillaEjercicio> GetPlantillaEjercicios(){
