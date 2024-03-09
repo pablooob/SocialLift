@@ -33,6 +33,11 @@ public class PlantillaEjercicioController {
         return ejercicio.get();
     }
 
+    @GetMapping("/byUserID/{id}")
+    public List<PlantillaEjercicio> GetPlantillaEjerciciosPorIdUsuario(@PathVariable Long id) {
+        return plantillaEjercicioService.getPlantillaEjerciciosByUsuarioId(id);
+    }
+
     @PutMapping("/{id}")
     public String actualizarPlantillaEjercicio(@PathVariable Long id, @RequestBody PlantillaEjercicio plantillaEjercicio) {
         plantillaEjercicio.setId(id); // Asegurarse de que el ID del ejercicio sea el mismo que se proporciona en la URL

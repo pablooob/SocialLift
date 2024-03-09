@@ -29,6 +29,9 @@ public class PlantillaEjercicioService {
     public Optional<PlantillaEjercicio> GetPlantillaEjercicioById(Long id){
         return plantillaEjercicioRepository.findById(id);
     }
+    public List<PlantillaEjercicio> getPlantillaEjerciciosByUsuarioId(Long idUsuario) {
+        return plantillaEjercicioRepository.findByUsuarioIdUsuario(idUsuario);
+    }
 
     public void UpdatePlantillaEjercicio(PlantillaEjercicio plantillaEjercicio){
         plantillaEjercicioRepository.save(plantillaEjercicio);
