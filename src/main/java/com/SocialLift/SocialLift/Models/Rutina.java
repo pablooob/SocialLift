@@ -28,7 +28,7 @@ public class Rutina {
 
     private String descripcion;
 
-    private boolean isPrivate;
+    private String isPublic;
 
     @Column(nullable = false)
     private Date fecha;
