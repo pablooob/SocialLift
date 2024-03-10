@@ -41,6 +41,11 @@ public class UsuarioController {
         return usuarioService.GetUserByNombreUsuario(nombreUsuario);
     }
 
+    @GetMapping(value = "/startWith/{nombreUsuario}", headers = "Accept=application/json")
+    public List<Usuario> GetByNombreUsuarioStartingWith(@PathVariable String nombreUsuario){
+        return usuarioService.findByNombreUsuarioStartingWith(nombreUsuario);
+    }
+
     @GetMapping(value = "/{id}/seguidores", headers = "Accept=application/json")
     public List<Usuario> GetSeguidoresById(@PathVariable Long id){
         return usuarioService.GetSeguidoresById(id);

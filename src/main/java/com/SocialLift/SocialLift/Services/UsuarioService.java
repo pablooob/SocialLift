@@ -47,6 +47,10 @@ public class UsuarioService {
         }
         return usuarioOptional;
     }
+
+    public List<Usuario> findByNombreUsuarioStartingWith(String nombreUsuario){
+        return usuarioRepository.findByNombreUsuarioStartingWith(nombreUsuario);
+    }
     public List<Usuario> GetSeguidoresById(Long id){
         Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
         if(usuarioOptional.isPresent()){
