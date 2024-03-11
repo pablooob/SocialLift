@@ -29,7 +29,7 @@ public class RutinaService {
     public Optional<Rutina> GetRutinaById(Long id){ return rutinaRepository.findById(id);}
 
     public List<Rutina> getRutinasByUsuarios(List<Usuario> usuarios) {
-        return rutinaRepository.findByUsuarioIn(usuarios);
+        return rutinaRepository.findByUsuarioInAndIsPublicIsTrue(usuarios);
     }
 
     public void UpdateRutina(Rutina rutina) { rutinaRepository.save(rutina);}

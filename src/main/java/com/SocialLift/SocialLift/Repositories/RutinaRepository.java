@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface RutinaRepository extends JpaRepository<Rutina, Long> {
     List<Rutina> findByUsuarioIdUsuario(Long idUsuario);
-    List<Rutina> findByUsuarioIn(List<Usuario> usuarios);
+    List<Rutina> findByUsuarioInAndIsPublicIsTrue(List<Usuario> usuarios);
 }
