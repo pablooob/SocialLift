@@ -2,6 +2,7 @@ package com.SocialLift.SocialLift.Services;
 
 import com.SocialLift.SocialLift.Models.PlantillaEjercicio;
 import com.SocialLift.SocialLift.Models.Rutina;
+import com.SocialLift.SocialLift.Models.Usuario;
 import com.SocialLift.SocialLift.Repositories.RutinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,10 @@ public class RutinaService {
         return rutinaRepository.findByUsuarioIdUsuario(idUsuario);
     }
     public Optional<Rutina> GetRutinaById(Long id){ return rutinaRepository.findById(id);}
+
+    public List<Rutina> getRutinasByUsuarios(List<Usuario> usuarios) {
+        return rutinaRepository.findByUsuarioIn(usuarios);
+    }
 
     public void UpdateRutina(Rutina rutina) { rutinaRepository.save(rutina);}
     public void DeleteRutina(Long id){

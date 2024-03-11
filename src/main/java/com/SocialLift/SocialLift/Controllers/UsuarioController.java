@@ -1,9 +1,6 @@
 package com.SocialLift.SocialLift.Controllers;
 
-import com.SocialLift.SocialLift.Models.Serie;
 import com.SocialLift.SocialLift.Models.Usuario;
-import com.SocialLift.SocialLift.Repositories.UsuarioRepository;
-import com.SocialLift.SocialLift.Services.SerieService;
 import com.SocialLift.SocialLift.Services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -74,4 +71,6 @@ public class UsuarioController {
     public void DeleteSeguimientoById(@PathVariable Long idUsuarioLoggeado, @PathVariable Long idUsuarioADesSeguir) throws Exception{
         usuarioService.DeleteSeguimientoById(idUsuarioLoggeado, idUsuarioADesSeguir);
     }
+
+
 }
