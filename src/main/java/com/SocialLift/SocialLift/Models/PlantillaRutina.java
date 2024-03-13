@@ -15,12 +15,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PlantillaRutina {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPlantillaRutina;
 
     @Column(nullable = false)
     private String nombre;
+
+    private String imagen;
 
     private String descripcion;
 

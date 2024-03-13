@@ -20,6 +20,8 @@ public class PlantillaEjercicio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPlantillaEjercicio;
 
+    private String imagen;
+
     @Column(nullable = false, unique = true)
     private String nombre;
 

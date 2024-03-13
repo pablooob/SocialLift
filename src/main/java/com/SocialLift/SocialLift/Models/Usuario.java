@@ -22,6 +22,8 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuario;
 
+    private String imagen;
+
     @Column(nullable = false)
     private String nombre;
 
