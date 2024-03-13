@@ -34,4 +34,6 @@ public class Serie {
     @ManyToOne
     @JoinColumn(name = "idEjercicio", nullable = false)
     private Ejercicio ejercicio;
+
+    private String video;
 }
