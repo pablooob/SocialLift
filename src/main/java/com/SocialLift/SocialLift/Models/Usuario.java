@@ -51,6 +51,18 @@ public class Usuario {
     @JsonIgnore
     private List<PlantillaEjercicio> plantillaEjercicios;
 
+    @OneToMany(mappedBy = "usuario")
+    @JsonIgnoreProperties("Usuario")
+    private List<IMC> IMCs;
+
+    @OneToMany(mappedBy = "usuario")
+    @JsonIgnoreProperties("Usuario")
+    private List<Peso> pesos;
+
+    @OneToMany(mappedBy = "usuario")
+    @JsonIgnoreProperties("Usuario")
+    private List<MedidasCorporales> MedidasCorporales;
+
     @ManyToMany
     @JoinTable(
             name = "seguidores_seguidos",
