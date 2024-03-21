@@ -24,6 +24,9 @@ public class Usuario {
 
     private String imagen;
 
+    private Double alturaActual;
+    private Double pesoActual;
+
     @Column(nullable = false)
     private String nombre;
 
