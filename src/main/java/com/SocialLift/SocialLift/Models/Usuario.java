@@ -26,6 +26,13 @@ public class Usuario {
 
     private Double alturaActual;
     private Double pesoActual;
+    private Double hombroActual;
+    private Double espaldaActual;
+    private Double cinturaActual;
+    private Double gemeloActual;
+    private Double bicepsActual;
+    private Double musloActual;
+    private Double pechoActual;
 
     @Column(nullable = false)
     private String nombre;
