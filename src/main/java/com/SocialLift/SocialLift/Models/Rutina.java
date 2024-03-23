@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.awt.Color;
 import java.util.Date;
 import java.util.List;
 
@@ -32,6 +33,8 @@ public class Rutina {
 
     @Column(nullable = false)
     private Date fecha;
+
+    private Color color;
 
     @ManyToOne
     @JoinColumn(name = "idPlantillaRutina")
