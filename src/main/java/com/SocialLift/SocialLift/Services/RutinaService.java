@@ -23,7 +23,7 @@ public class RutinaService {
     }
     public List<Rutina> GetRutinas() { return rutinaRepository.findAll();}
 
-    public List<Rutina> getPlantillaEjerciciosByUsuarioId(Long idUsuario) {
+    public List<Rutina> getRutinaByUsuarioId(Long idUsuario) {
         return rutinaRepository.findByUsuarioIdUsuario(idUsuario);
     }
     public Optional<Rutina> GetRutinaById(Long id){ return rutinaRepository.findById(id);}

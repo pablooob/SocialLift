@@ -1,6 +1,7 @@
 package com.SocialLift.SocialLift.Services;
 
 import com.SocialLift.SocialLift.Models.PlantillaRutina;
+import com.SocialLift.SocialLift.Models.Rutina;
 import com.SocialLift.SocialLift.Repositories.PlantillaRutinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,9 @@ public class PlantillaRutinaService {
 
     public Optional<PlantillaRutina> GetPlantillaRutinaById(Long id){
         return plantillaRutinaRepositoryRepository.findById(id);
+    }
+    public List<PlantillaRutina> getPlantillaRutinasByUsuarioId(Long idUsuario) {
+        return plantillaRutinaRepositoryRepository.findByUsuarioIdUsuario(idUsuario);
     }
 
     public void UpdatePlantillaRutina(PlantillaRutina plantillaRutina){

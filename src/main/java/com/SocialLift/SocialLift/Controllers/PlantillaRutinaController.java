@@ -1,6 +1,7 @@
 package com.SocialLift.SocialLift.Controllers;
 
 import com.SocialLift.SocialLift.Models.PlantillaRutina;
+import com.SocialLift.SocialLift.Models.Rutina;
 import com.SocialLift.SocialLift.Services.PlantillaRutinaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,10 @@ public class PlantillaRutinaController {
     @PostMapping(headers = "Accept=application/json")
     public PlantillaRutina NewPlantillaRutina(@RequestBody PlantillaRutina plantillaRutina){
         return this.plantillaRutinaService.NewPlantillaRutina(plantillaRutina);
+    }
+    @GetMapping("/byUserID/{id}")
+    public List<PlantillaRutina> GetPlantillaRutinasPorIdUsuario(@PathVariable Long id) {
+        return plantillaRutinaService.getPlantillaRutinasByUsuarioId(id);
     }
 
     @GetMapping(headers = "Accept=application/json")

@@ -34,8 +34,8 @@ public class RutinaController {
     }
 
     @GetMapping("/byUserID/{id}")
-    public List<Rutina> GetPlantillaEjerciciosPorIdUsuario(@PathVariable Long id) {
-        return rutinaService.getPlantillaEjerciciosByUsuarioId(id);
+    public List<Rutina> GetRutinasPorIdUsuario(@PathVariable Long id) {
+        return rutinaService.getRutinaByUsuarioId(id);
     }
 
     @GetMapping("/{id}")
