@@ -47,4 +47,8 @@ public class PlantillaRutina {
     @JsonIgnoreProperties({"seguidores", "seguidos"})
     private Usuario usuario;
 
+    @OneToOne
+    @JoinColumn(name = "color_id")
+    private ColorRutina color;
+
 }
