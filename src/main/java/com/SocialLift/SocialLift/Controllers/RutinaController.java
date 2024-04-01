@@ -1,15 +1,12 @@
 package com.SocialLift.SocialLift.Controllers;
 
-import com.SocialLift.SocialLift.Models.PlantillaEjercicio;
-import com.SocialLift.SocialLift.Models.Rutina;
-import com.SocialLift.SocialLift.Models.Usuario;
+import com.SocialLift.SocialLift.Models.*;
 import com.SocialLift.SocialLift.Services.RutinaService;
 import com.SocialLift.SocialLift.Services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/rutina")
@@ -36,6 +33,18 @@ public class RutinaController {
     @GetMapping("/byUserID/{id}")
     public List<Rutina> GetRutinasPorIdUsuario(@PathVariable Long id) {
         return rutinaService.getRutinaByUsuarioId(id);
+    }
+    @GetMapping("/stats/byUserID/{id}")
+    public Map<Date, Ejercicio> GetRutinasStatsPorIdUsuario(@PathVariable Long id) {
+        List<Rutina> rutinas = rutinaService.getRutinaByUsuarioId(id);
+        Map<Date, Ejercicio> estadisticas = new HashMap<>();
+
+        for (Rutina rutina : rutinas) {
+            for (Ejercicio ejercicio : rutina.getEjercicios()) {
+                estadisticas.put(rutina.getFecha(), ejercicio);
+            }
+        }
+        return estadisticas;
     }
 
     @GetMapping("/{id}")
