@@ -3,6 +3,7 @@ package com.SocialLift.SocialLift.Controllers;
 import com.SocialLift.SocialLift.Models.*;
 import com.SocialLift.SocialLift.Services.RutinaService;
 import com.SocialLift.SocialLift.Services.UsuarioService;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,14 +36,18 @@ public class RutinaController {
         return rutinaService.getRutinaByUsuarioId(id);
     }
     @GetMapping("/stats/byUserID/{id}")
-    public Map<Date, Ejercicio> GetRutinasStatsPorIdUsuario(@PathVariable Long id) {
-        List<Rutina> rutinas = rutinaService.getRutinaByUsuarioId(id);
-        Map<Date, Ejercicio> estadisticas = new HashMap<>();
-
+    public Map<Date, List<Ejercicio>> GetRutinasStatsPorIdUsuario(@PathVariable Long id) {
+        List<Rutina> rutinas = GetRutinasPorIdUsuario(id);
+        Map<Date, List<Ejercicio>> estadisticas = new HashMap<>();
+        List<Ejercicio> ejerciciosRutina = new ArrayList<Ejercicio>();
         for (Rutina rutina : rutinas) {
-            for (Ejercicio ejercicio : rutina.getEjercicios()) {
-                estadisticas.put(rutina.getFecha(), ejercicio);
+            for(Ejercicio ejercicio : rutina.getEjercicios()){
+                if(Objects.equals(ejercicio.getRutina().getNombre(), rutina.getNombre())){
+                    ejerciciosRutina.add(ejercicio);
+                }
             }
+            estadisticas.put(rutina.getFecha(), ejerciciosRutina);
+            ejerciciosRutina = new ArrayList<Ejercicio>();
         }
         return estadisticas;
     }
