@@ -39,7 +39,7 @@ public class PlantillaRutinaController {
     }
 
     @PutMapping(headers = "Accept=application/json")
-    public void UpdatePlantillaRutina(PlantillaRutina plantillaRutina){
+    public void UpdatePlantillaRutina(@RequestBody PlantillaRutina plantillaRutina){
         plantillaRutinaService.UpdatePlantillaRutina(plantillaRutina);
     }
 
