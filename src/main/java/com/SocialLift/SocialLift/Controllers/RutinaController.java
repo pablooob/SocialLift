@@ -36,8 +36,8 @@ public class RutinaController {
         return rutinaService.getRutinaByUsuarioId(id);
     }
     @GetMapping("/stats/byUserID/{id}")
-    public Map<String, Map<Date, List<Serie>>> GetRutinasStatsPorIdUsuario(@PathVariable Long id) {
-        Map<String, Map<Date, List<Serie>>> estadisticas = new HashMap<>();
+    public Map<String, Map<Date, Double>> GetRutinasStatsPorIdUsuario(@PathVariable Long id) {
+        Map<String, Map<Date, Double>> estadisticas = new HashMap<>();
         List<Rutina> rutinas = GetRutinasPorIdUsuario(id);
 
         for (Rutina rutina : rutinas) {
@@ -45,15 +45,20 @@ public class RutinaController {
             for (Ejercicio ejercicio : rutina.getEjercicios()) {
                 String plantillaEjercicio = ejercicio.getPlantillaEjercicio().getNombre();
                 List<Serie> series = ejercicio.getSeries();
-
+                double maxPeso = 0.0;
+                for(Serie serie : series){
+                    if(serie.getPeso() > maxPeso){
+                        maxPeso = serie.getPeso();
+                    }
+                }
                 // Verificar si la clave ya existe en el mapa
                 if (!estadisticas.containsKey(plantillaEjercicio)) {
                     estadisticas.put(plantillaEjercicio, new HashMap<>());
                 }
 
                 // Obtener el mapa interior correspondiente a la plantilla de ejercicio
-                Map<Date, List<Serie>> seriesPorFecha = estadisticas.get(plantillaEjercicio);
-                seriesPorFecha.put(fecha, series);
+                Map<Date, Double> seriesPorFecha = estadisticas.get(plantillaEjercicio);
+                seriesPorFecha.put(fecha, maxPeso);
             }
         }
         return estadisticas;
