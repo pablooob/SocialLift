@@ -40,8 +40,8 @@ public class PlantillaRutinaController {
     }
 
     @GetMapping(value = "/startWith/{nombre}", headers = "Accept=application/json")
-    public List<PlantillaRutina> GetByNombreStartingWith(@PathVariable String nombre){
-        return plantillaRutinaService.findByNombreStartingWith(nombre);
+    public List<PlantillaRutina> GetByNombreContaining(@PathVariable String nombre){
+        return plantillaRutinaService.findByNombreContaining(nombre);
     }
 
     @PutMapping(headers = "Accept=application/json")

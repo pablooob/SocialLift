@@ -10,5 +10,5 @@ import java.util.List;
 public interface PlantillaRutinaRepository extends JpaRepository<PlantillaRutina, Long> {
     List<PlantillaRutina> findByUsuarioIdUsuario(Long idUsuario);
 
-    List<PlantillaRutina> findByNombreStartingWith(String nombre);
+    List<PlantillaRutina> findByNombreContaining(String nombre);
 }

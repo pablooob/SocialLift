@@ -35,8 +35,8 @@ public class PlantillaRutinaService {
         return plantillaRutinaRepositoryRepository.findByUsuarioIdUsuario(idUsuario);
     }
 
-    public List<PlantillaRutina> findByNombreStartingWith(String nombre){
-        return plantillaRutinaRepositoryRepository.findByNombreStartingWith(nombre);
+    public List<PlantillaRutina> findByNombreContaining(String nombre){
+        return plantillaRutinaRepositoryRepository.findByNombreContaining(nombre);
     }
 
     public void UpdatePlantillaRutina(PlantillaRutina plantillaRutina){
