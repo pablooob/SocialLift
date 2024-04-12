@@ -2,6 +2,7 @@ package com.SocialLift.SocialLift.Controllers;
 
 import com.SocialLift.SocialLift.Models.PlantillaRutina;
 import com.SocialLift.SocialLift.Models.Rutina;
+import com.SocialLift.SocialLift.Models.Usuario;
 import com.SocialLift.SocialLift.Services.PlantillaRutinaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +37,11 @@ public class PlantillaRutinaController {
     @GetMapping(value = "/{id}", headers = "Accept=application/json")
     public Optional<PlantillaRutina> GetById(@PathVariable Long id){
         return plantillaRutinaService.GetPlantillaRutinaById(id);
+    }
+
+    @GetMapping(value = "/startWith/{nombre}", headers = "Accept=application/json")
+    public List<PlantillaRutina> GetByNombreStartingWith(@PathVariable String nombre){
+        return plantillaRutinaService.findByNombreStartingWith(nombre);
     }
 
     @PutMapping(headers = "Accept=application/json")
