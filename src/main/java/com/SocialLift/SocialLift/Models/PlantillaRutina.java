@@ -1,5 +1,6 @@
 package com.SocialLift.SocialLift.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -41,6 +42,15 @@ public class PlantillaRutina {
             inverseJoinColumns = @JoinColumn(name = "idEjercicio")
     )
     private List<PlantillaEjercicio> plantillaEjercicios;
+
+    @ManyToMany
+    @JoinTable(
+            name = "rutina_usuario",
+            joinColumns = @JoinColumn(name = "idRutina"),
+            inverseJoinColumns = @JoinColumn(name = "idUsuario")
+    )
+    @JsonIgnore
+    private List<Usuario> usuarioGuardados;
 
     @ManyToOne
     @JoinColumn(name = "idUsuario")

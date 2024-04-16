@@ -73,6 +73,10 @@ public class Usuario {
     @JsonIgnoreProperties("Usuario")
     private List<MedidasCorporales> MedidasCorporales;
 
+    @ManyToMany(mappedBy = "usuarioGuardados")
+    @JsonIgnore
+    private List<PlantillaRutina> plantillaRutinaGuardadas;
+
     @ManyToMany
     @JoinTable(
             name = "seguidores_seguidos",

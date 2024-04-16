@@ -11,4 +11,6 @@ public interface PlantillaRutinaRepository extends JpaRepository<PlantillaRutina
     List<PlantillaRutina> findByUsuarioIdUsuario(Long idUsuario);
 
     List<PlantillaRutina> findByNombreContaining(String nombre);
+
+    List<PlantillaRutina> findByUsuarioGuardadosIdUsuario(Long idUsuario);
 }
