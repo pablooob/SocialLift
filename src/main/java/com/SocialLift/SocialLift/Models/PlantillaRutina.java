@@ -28,6 +28,8 @@ public class PlantillaRutina {
 
     private String descripcion;
 
+    private Long tiempoRutinaSegundos;
+
     @Column(nullable = false)
     private String tipo;
 

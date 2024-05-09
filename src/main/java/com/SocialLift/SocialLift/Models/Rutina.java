@@ -30,6 +30,10 @@ public class Rutina {
 
     private Boolean isPublic;
 
+    private String nombreGimnasio;
+
+    private Long tiempoRutinaSegundos;
+
     @Column(nullable = false)
     private Date fecha;
 
