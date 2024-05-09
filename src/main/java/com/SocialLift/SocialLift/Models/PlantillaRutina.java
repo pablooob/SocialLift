@@ -28,7 +28,7 @@ public class PlantillaRutina {
 
     private String descripcion;
 
-    private Long tiempoRutinaSegundos;
+    private Long tiempoRutinaMinutos;
 
     @Column(nullable = false)
     private String tipo;

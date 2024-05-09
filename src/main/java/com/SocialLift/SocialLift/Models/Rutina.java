@@ -32,7 +32,7 @@ public class Rutina {
 
     private String nombreGimnasio;
 
-    private Long tiempoRutinaSegundos;
+    private Long tiempoRutinaMinutos;
 
     @Column(nullable = false)
     private Date fecha;
