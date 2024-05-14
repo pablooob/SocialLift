@@ -34,7 +34,7 @@ public class SerieController {
     }
 
     @PutMapping(headers = "Accept=application/json")
-    public void UpdateSerie(Serie serie){
+    public void UpdateSerie(@RequestBody Serie serie){
         serieService.UpdateSerie(serie);
     }
 

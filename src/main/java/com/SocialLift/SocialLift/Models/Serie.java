@@ -1,5 +1,6 @@
 package com.SocialLift.SocialLift.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,6 +34,7 @@ public class Serie {
 
     @ManyToOne
     @JoinColumn(name = "idEjercicio", nullable = false)
+    @JsonIgnoreProperties("series")
     private Ejercicio ejercicio;
 
     private String video;
