@@ -14,10 +14,10 @@ import java.nio.file.Files;
 @RestController
 public class VerificationController {
 
-    @GetMapping("/loaderio-42c07ef373476ee7b0a9a9cb3008dbe2.txt")
+    @GetMapping("/static/loaderio-42c07ef373476ee7b0a9a9cb3008dbe2.txt")
     public ResponseEntity<String> getVerificationFile() {
         try {
-            Resource resource = new ClassPathResource("loaderio-42c07ef373476ee7b0a9a9cb3008dbe2.txt");
+            Resource resource = new ClassPathResource("static/loaderio-42c07ef373476ee7b0a9a9cb3008dbe2.txt");
             String content = new String(Files.readAllBytes(resource.getFile().toPath()));
             return new ResponseEntity<>(content, new HttpHeaders(), HttpStatus.OK);
         } catch (IOException e) {
