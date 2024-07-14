@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/usuario")
+@RequestMapping("/api/public/usuario")
 public class UsuarioController {
 
     private UsuarioService usuarioService;

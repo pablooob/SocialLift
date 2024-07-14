@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 @RestController
-@RequestMapping("/api/serie")
+@RequestMapping("/api/client/serie")
 public class SerieController {
     private SerieService serieService;
     @Autowired
