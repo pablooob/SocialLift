@@ -13,9 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/colorRutina")
 public class ColorController {
-
     private ColorService colorService;
-
     @Autowired
     public ColorController(ColorService colorService){
         this.colorService = colorService;
