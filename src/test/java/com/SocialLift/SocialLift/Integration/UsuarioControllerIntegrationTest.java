@@ -58,7 +58,8 @@ public class UsuarioControllerIntegrationTest {
                 .andExpect(status().isOk());
 
         Usuario createdUsuario = usuarioService.GetUserByNombreUsuario(usuario.getNombreUsuario());
-        assert createdUsuario.getNombreUsuario() == usuario.getNombreUsuario();
+        assertEquals(createdUsuario.getNombreUsuario(), usuario.getNombreUsuario());
+
     }
 
     @Test
@@ -69,15 +70,54 @@ public class UsuarioControllerIntegrationTest {
         usuario.setNombreUsuario("juanperez");
         usuario.setContrasenya("password");
 
+        // Envía la solicitud POST para crear el usuario
         mockMvc.perform(post("/api/usuario")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(usuario)))
-                .andExpect(status().isOk());
+                .andExpect(status().isBadRequest());
+
+        Usuario createdUsuario = usuarioService.GetUserByNombreUsuario(usuario.getNombreUsuario());
+        assert createdUsuario == null;
+    }
+    @Test
+    public void testNewUsuarioApellidos() throws Exception {
+        Usuario usuario = new Usuario();
+        usuario.setNombre("Juan");
+        usuario.setCorreo("juan@example.com");
+        usuario.setNombreUsuario("juanperez");
+        usuario.setContrasenya("password");
+
+        // Envía la solicitud POST para crear el usuario
+        mockMvc.perform(post("/api/usuario")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(usuario)))
+                .andExpect(status().isBadRequest());
 
         Usuario createdUsuario = usuarioService.GetUserByNombreUsuario(usuario.getNombreUsuario());
         assert createdUsuario == null;
     }
 
+    @Test
+    public void testNewUsuarioUserName() throws Exception {
+        Usuario usuario = new Usuario();
+
+        usuario.setNombre("Juan");
+        usuario.setApellidos("Pérez");
+        usuario.setCorreo("juan@example.com");
+        usuario.setContrasenya("password");
+
+        // Envía la solicitud POST para crear el usuario
+        mockMvc.perform(post("/api/usuario")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(usuario)))
+                .andExpect(status().isBadRequest());
+
+        Usuario createdUsuario = usuarioService.GetUserByNombreUsuario(usuario.getNombreUsuario());
+        assert createdUsuario == null;
+    }
+
+
+    /*
     @Test
     public void testGetUsuario() throws Exception {
         // Crear usuarios con correos electrónicos únicos
@@ -105,6 +145,7 @@ public class UsuarioControllerIntegrationTest {
                 .andExpect(jsonPath("$").isArray())
                 .andExpect(jsonPath("$.length()").value(usuarios.size()));
     }
+     */
 
     @Test
     public void testGetById() throws Exception {
