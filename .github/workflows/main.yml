@@ -19,9 +19,6 @@ jobs:
           distribution: 'temurin'  # Usar la distribución temurin
           java-version: '17'
 
-      - name: Build with Maven
-        run: mvn clean install
-
       - name: Deploy to Render
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}  # Necesitarás configurar este secreto en GitHub
