@@ -11,7 +11,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/usuario")
 public class UsuarioController {
-
     private UsuarioService usuarioService;
     @Autowired
     public UsuarioController(UsuarioService usuarioService) {
@@ -71,6 +70,4 @@ public class UsuarioController {
     public void DeleteSeguimientoById(@PathVariable Long idUsuarioLoggeado, @PathVariable Long idUsuarioADesSeguir) throws Exception{
         usuarioService.DeleteSeguimientoById(idUsuarioLoggeado, idUsuarioADesSeguir);
     }
-
-
 }
